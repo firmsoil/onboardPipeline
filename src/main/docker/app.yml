@@ -1,0 +1,21 @@
+version: '2'
+services:
+    onboardpipeline-app:
+        image: onboardpipeline
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATA_MONGODB_URI=mongodb://onboardpipeline-mongodb:27017
+            - SPRING_DATA_MONGODB_DATABASE=onboardPipeline
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_JEST_URI=http://onboardpipeline-elasticsearch:9200
+        ports:
+            - 8080:8080
+    onboardpipeline-mongodb:
+        extends:
+            file: mongodb.yml
+            service: onboardpipeline-mongodb
+    onboardpipeline-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: onboardpipeline-elasticsearch
