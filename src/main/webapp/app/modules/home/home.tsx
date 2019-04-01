@@ -53,7 +53,7 @@ export class Home extends React.Component<IHomeProp> {
           <ul>
             <li>
               <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">
-                JHipster homepage
+                ELMA homepage
               </a>
             </li>
             <li>
